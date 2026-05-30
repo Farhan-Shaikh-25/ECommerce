@@ -26,9 +26,6 @@ app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRouter)
 
 // Basic fallback route
-app.get('/', (req, res) => {
-  res.send('E-commerce API is running...');
-});
 
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
