@@ -4,7 +4,7 @@ A complete, responsive e-commerce platform built with the MERN stack (MongoDB, E
 
 **Live Demo:** [https://minimall-ecom.onrender.com](https://minimall-ecom.onrender.com)
 
-## 🚀 Features
+## Features
 
 **For Customers:**
 * **Modern Storefront:** Responsive product catalog built with Tailwind CSS.
@@ -17,7 +17,7 @@ A complete, responsive e-commerce platform built with the MERN stack (MongoDB, E
 * **Inventory Management:** Full CRUD (Create, Read, Update, Delete) capabilities for products.
 * **Order Tracking:** Centralized dashboard to view all customer orders, monitor payment status, and track deliveries.
 
-## 💻 Tech Stack
+## Tech Stack
 
 * **Frontend:** React (Vite), Tailwind CSS, Lucide React (Icons), Axios, React Router v6.
 * **Backend:** Node.js, Express.js.
@@ -25,7 +25,7 @@ A complete, responsive e-commerce platform built with the MERN stack (MongoDB, E
 * **Security & Auth:** JSON Web Tokens (JWT), bcryptjs.
 * **Deployment:** Render (Monorepo setup: Express serves the static React build).
 
-## 🛠️ Local Development Setup
+## Local Development Setup
 
 ### Prerequisites
 Make sure you have Node.js and MongoDB installed on your local machine.
@@ -66,7 +66,7 @@ Open two terminal windows to run both servers concurrently:
 
 The app will be running at `http://localhost:5173`.
 
-## 🚢 Deployment (Render)
+## Deployment (Render)
 
 This application is configured to be deployed as a single Web Service on Render. The Express server is set up to serve the static frontend build in production.
 
@@ -76,7 +76,7 @@ This application is configured to be deployed as a single Web Service on Render.
 **Start Command:**
 `cd backend && node server.js`
 
-## 🗺️ Roadmap & Future Enhancements
+## Roadmap & Future Enhancements
 
 * Integration of a payment gateway (Razorpay/Stripe) for real-time checkout.
 * Implementation of image file uploads using Multer and Cloudinary.
