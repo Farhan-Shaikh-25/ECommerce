@@ -29,7 +29,7 @@ app.use('/api/orders', orderRouter)
 
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
-  const frontendPath = path.join(__dirname, '../frontend/dist');
+  const frontendPath = path.join(__dirname, '../Frontend/dist');
   app.use(express.static(frontendPath));
 
   // Any route that is not an API route will be redirected to React's index.html
