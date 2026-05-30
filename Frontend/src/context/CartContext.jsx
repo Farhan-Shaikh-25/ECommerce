@@ -1,16 +1,18 @@
 import { createContext, useContext, useState } from 'react';
 
-// 1. Create the Context
 const CartContext = createContext();
 
-// 2. Create the Provider Component
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
     setCart((prev) => {
       const existing = prev.find((item) => item._id === product._id);
+      
       if (existing) {
+        // Enforce the maximum limit of 3 items
+        if (existing.quantity >= 3) return prev; 
+        
         return prev.map((item) =>
           item._id === product._id ? { ...item, quantity: item.quantity + 1 } : item
         );
@@ -19,19 +21,39 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // ADD THIS NEW FUNCTION
+  const decreaseQuantity = (id) => {
+    setCart((prev) => {
+      const existing = prev.find((item) => item._id === id);
+      
+      // If there's only 1 left, a decrease should remove it from the cart entirely
+      if (existing.quantity === 1) {
+        return prev.filter((item) => item._id !== id); 
+      }
+      
+      return prev.map((item) =>
+        item._id === id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+    });
+  };
+
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item._id !== id));
+  };
+
+  const clearCart = () => {
+    setCart([]);
   };
 
   const cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, cartTotal, cartCount }}>
+    // Make sure to add 'decreaseQuantity' to the exported value
+    <CartContext.Provider value={{ cart, addToCart, decreaseQuantity, removeFromCart, clearCart, cartTotal, cartCount }}>
       {children}
     </CartContext.Provider>
   );
 };
 
-// 3. Custom hook for cleaner imports in components
 export const useCart = () => useContext(CartContext);
