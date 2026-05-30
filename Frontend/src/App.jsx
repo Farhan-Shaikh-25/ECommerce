@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import { Link } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import AdminPage from './pages/AdminPage';

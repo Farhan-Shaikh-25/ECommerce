@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
         alt={product.name} 
         className="w-full h-48 object-cover rounded-md mb-4" 
       />
-      <div className="flex-grow">
+      <div className="grow">
         <h4 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h4>
         <p className="text-sm text-gray-500 mb-4 line-clamp-2">{product.description}</p>
       </div>
